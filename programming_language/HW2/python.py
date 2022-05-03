@@ -2,6 +2,9 @@ class ParseException(Exception):
     def __init__(self, s: str) -> None:
         super().__init__(s)
 
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
+
 class RDParser:
     input = ""
     idx = 0
@@ -20,7 +23,7 @@ class RDParser:
     def digit(self):
         try:
             return int(self.input[self.idx])
-        except Valueerror:
+        except ValueError:
             return -1
 
     def number(self):
@@ -110,3 +113,4 @@ while(True):
         p.parser(input(">>"))
     except ParseException:
         print('syntax error!!')
+        break

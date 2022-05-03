@@ -54,7 +54,7 @@ class RDParser {
 	}
 
 	private void ffSpace() {
-		while (input.charAt(idx) == ' ')
+		while (input.charAt(idx) == ' ' || input.charAt(idx) == '\t')
 			idx++;
 	}
 

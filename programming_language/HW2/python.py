@@ -12,12 +12,13 @@ class RDParser:
     def parser(self, str):
         self.input = str + "$"
         self.idx = 0
-        if self.input[self.idx - 1] != '$':
+        res = self.expr()
+        if self.input[self.idx] != '$':
             raise ParseException()
-        print(self.expr())
+        print(res)
 
     def ffSpace(self):
-        while(self.input[self.idx] == ' '):
+        while(self.input[self.idx] == ' ' or self.input[self.idx] == '\t'):
             self.idx += 1
 
     def digit(self):

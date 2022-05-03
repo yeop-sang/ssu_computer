@@ -20,7 +20,7 @@ class RDParser:
     def digit(self):
         try:
             return int(self.input[self.idx])
-        except ValueError:
+        except Valueerror:
             return -1
 
     def number(self):
@@ -109,4 +109,4 @@ while(True):
     try:
         p.parser(input(">>"))
     except ParseException:
-        print('Syntax Error!!')
+        print('syntax error!!')

@@ -18,7 +18,7 @@ public class JavaLang {
 				p.parse(tempString);
 			}
 		} catch (ParsingException e) {
-			System.out.println("Syntax Error!!");
+			System.out.println("syntax Error!!");
 		} finally {
 			sc.close();
 		}
@@ -30,7 +30,7 @@ public class JavaLang {
 
 class ParsingException extends Exception {
 	public ParsingException() {
-		super("Syntax error!");
+		super("syntax error!");
 	}
 
 	public ParsingException(String str) {
@@ -114,7 +114,7 @@ class RDParser {
 
 		ffSpace();
 
-		while (!false) {
+		while (true) {
 			char operator = input.charAt(idx);
 
 			// operator가 * 이나 /인 경우만 처리한다.
@@ -137,7 +137,7 @@ class RDParser {
 
 		ffSpace();
 
-		while (!false) {
+		while (true) {
 			char operator = input.charAt(idx);
 
 			// operator가 + 나 - 인 경우에만 처리한다.

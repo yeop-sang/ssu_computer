@@ -29,3 +29,14 @@
 ## 참고 사이트
 - [okky_c#으로 구현](https://okky.kr/article/563163)
 - [gdb 활용법](https://dining-developer.tistory.com/13)
+
+
+## test 
+- 4531 + (32 * 5) + (86+5)
+    - 4782
+- (69*8)         + 911
+    - 1463
+- (74   +88)
+    - 162
+- ((32*4)
+    - syntax error!!

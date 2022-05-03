@@ -6,11 +6,11 @@
 typedef short flag;
 
 /*
-    <expr> → <term> {+ <term> | - <term>}
-    <term> → <factor> {* <factor> | / <factor>}
-    <factor> → [ - ] ( <number> | (<expr>) )
-    <number> → <digit> {<digit>}
-    <digit> → 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+	<expr> → <term> {+ <term> | - <term>}
+	<term> → <factor> {* <factor> | / <factor>}
+	<factor> → [ - ] ( <number> | (<expr>) )
+	<number> → <digit> {<digit>}
+	<digit> → 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 */
 
 char input_buffer[MAX_BUFFER];
@@ -21,6 +21,8 @@ void getInputString()
 {
 	gets(input_buffer);
 	len = strlen(input_buffer);
+	// 마지막에 추가
+	input_buffer[len] = '$';
 	iterator = 0;
 }
 
@@ -29,60 +31,100 @@ long term();
 long factor();
 long number();
 int digit();
+char getCurChar();
+flag is_valid(char a) {
+	switch(a) 
+	{
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+		case '(':
+		case ')':
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+		case ' ':
+		case '\t':
+		case '$':
+			return 1;
+		default:
+			return 0;
+	}
+}
 
-int main() {
-	getInputString();
-	expr();
-
+int main()
+{
+	long res = 0;
+	while (!error_flag)
+	{
+		printf(">>");
+		getInputString();
+		res = expr();
+		if(getCurChar() != '$')
+			error_flag = 1;
+		if (error_flag)
+		{
+			printf("syntax error!!\n");
+			break;
+		}
+		printf("%ld\n", res);
+	}
 	exit(0);
 }
 
-char getCurChar() {
+char getCurChar()
+{
 	return input_buffer[iterator];
 }
 
-void moveNext() {
-	if(iterator < len - 1)
-		iterator++;
-	else
-		error_flag = 1;	
+void moveNext()
+{
+	iterator++;
 }
 
-void moveBack() {
-	if(iterator > 0)
-	iterator--;
-	else
-		error_flag = 1;
-}
-
-void ffSpace() {
-	while(getCurChar() == ' ')
+void ffSpace()
+{
+	while (getCurChar() == ' ' || getCurChar() == '\t')
 		moveNext();
 }
 
 int digit()
 {
-	int digit = getCurChar() - '0';
-	if(digit < 0 || digit > 9)
+	char cur_char = getCurChar();
+	if(!is_valid(cur_char)) {
+		error_flag = 1;
 		return -1;
+	}
+	int digit = cur_char - '0';
+	if (digit < 0 || digit > 9) {
+		return -1;
+	}
+
 	return digit;
 }
 
-long number() {
-	if(error_flag)
-		return -1;
-	long res= 0, temp_digit;
+long number()
+{
+	long res = 0, temp_digit;
 	ffSpace();
 #ifdef DEBUG
 	printf("\t\t\tBegin number\n");
 #endif
-	while((temp_digit = digit()) >= 0 && !error_flag)
+	while ((temp_digit = digit()) >= 0)
 	{
 		res = res * 10 + temp_digit;
 #ifdef DEBUG
 		printf("\t\t\t\ttemp_res : %ld\t", res);
 #endif
-		moveNext();	
+		moveNext();
 	}
 
 #ifdef DEBUG
@@ -91,35 +133,37 @@ long number() {
 	return res;
 }
 
-long factor() {
-	if(error_flag)
-		return -1;
+long factor()
+{
 	long res;
 	ffSpace();
 	char token = getCurChar();
 #ifdef DEBUG
 	printf("\t\tBegin factor\n");
 #endif
-	if(token == '(') {
+	if (token == '(')
+	{
 		moveNext();
 		ffSpace();
 		res = expr();
 		token = getCurChar();
-		if(token != ')') {
-			fprintf(stderr, ") is not appeared!");
-			error_flag = -1;	
+		if (token != ')')
+		{
+			error_flag = -1;
 		}
+		moveNext();
 	}
 	else
 	{
-		if(getCurChar() == '-') {
+		if (getCurChar() == '-')
+		{
 			moveNext();
 			ffSpace();
 			res = -1;
 		}
 		else
 			res = 1;
-	
+
 		// number 실행
 		res = res * number();
 	}
@@ -130,30 +174,34 @@ long factor() {
 	return res;
 }
 
-long term() {
+long term()
+{
 #ifdef DEBUG
 	printf("\tstart term\n");
 #endif
-	if(error_flag)
+	if (error_flag)
 		return -1;
 	long res = factor();
 	ffSpace();
-	char c; 
-	while(!error_flag) {
+	char c;
+	while (!error_flag)
+	{
 		c = getCurChar();
-		if(c == '*') {
+
+		if (c == '*')
+		{
 			moveNext();
 			ffSpace();
 			res *= factor();
 		}
-		else if(c == '/') {
+		else if (c == '/')
+		{
 			moveNext();
 			ffSpace();
 			res /= factor();
 		}
 		else
 			break;
-		ffSpace();
 	}
 #ifdef DEBUG
 	printf("\t\tres : %ld\n", res);
@@ -162,8 +210,9 @@ long term() {
 	return res;
 }
 
-long expr() {
-	if(error_flag)
+long expr()
+{
+	if (error_flag)
 		return -1;
 
 #ifdef DEBUG
@@ -172,18 +221,26 @@ long expr() {
 	long res = term();
 	ffSpace();
 	char c;
-	while(!error_flag) {
+	while (!error_flag)
+	{
 		c = getCurChar();
-		if(c == '+') {
+		if (c == '+' || c == '-')
+		{
 			moveNext();
-			res += term();
-		}
-		if(c == '-') {
-			moveNext();
-			res -= term();
+			ffSpace();
+
+			if (c == '+')
+			{
+				res += term();
+			}
+			if (c == '-')
+			{
+				res -= term();
+			}
 		}
 		else
 			break;
+
 #ifdef DEBUG
 		printf("\ttemp_res : %ld\n", res);
 #endif
@@ -195,10 +252,3 @@ long expr() {
 #endif
 	return res;
 }
-
-
-
-
-
-
-

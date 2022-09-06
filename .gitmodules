@@ -1,0 +1,3 @@
+[submodule "os/src"]
+	path = os/src
+	url = git@github.com:yeop-sang/os-project.git

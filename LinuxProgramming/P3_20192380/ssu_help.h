@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void){
+void help(void){
     printf("Usage:\n");
     printf("  > fmd5/fsha1 –e [FILE_EXTENSION] -l [MINSIZE] -h [MAXSIZE] -d [TARGET_DIRECTORY] -t [THREAD_NUM]\n");
     printf("     >> delete –l [SET_INDEX] -d [OPTARG] -i -f -t\n");

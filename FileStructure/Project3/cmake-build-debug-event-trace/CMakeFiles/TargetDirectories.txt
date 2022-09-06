@@ -1,0 +1,3 @@
+/Users/yeop/code/ssu_computer/FileStructure/Project3/cmake-build-debug-event-trace/CMakeFiles/Project3.dir
+/Users/yeop/code/ssu_computer/FileStructure/Project3/cmake-build-debug-event-trace/CMakeFiles/edit_cache.dir
+/Users/yeop/code/ssu_computer/FileStructure/Project3/cmake-build-debug-event-trace/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "FileStructure",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "FileStructure::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FileStructure-Debug-862aec0b08928751e2f4.json",
+					"name" : "FileStructure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project1_copy::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project1_copy-Debug-2dc95233652c7ee8a11a.json",
+					"name" : "Project1_copy",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project1_delete::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project1_delete-Debug-c73f08d563fde1830074.json",
+					"name" : "Project1_delete",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project1_insert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project1_insert-Debug-b46382dc2f98fccc8c3f.json",
+					"name" : "Project1_insert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project1_overwrite::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project1_overwrite-Debug-f35f02addf0076d173e1.json",
+					"name" : "Project1_overwrite",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project1_read::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project1_read-Debug-7fc32fd348f32215d8d8.json",
+					"name" : "Project1_read",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug",
+		"source" : "/Users/yeop/code/ssu_computer/FileStructure"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

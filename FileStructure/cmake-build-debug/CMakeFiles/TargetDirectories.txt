@@ -1,0 +1,8 @@
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/FileStructure.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/Project1_copy.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/Project1_read.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/Project1_overwrite.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/Project1_insert.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/Project1_delete.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yeop/code/ssu_computer/FileStructure/cmake-build-debug/CMakeFiles/rebuild_cache.dir

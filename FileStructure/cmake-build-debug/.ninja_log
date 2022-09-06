@@ -1,0 +1,15 @@
+# ninja log v5
+0	52	1648471444689399949	CMakeFiles/Project1_read.dir/Project1/read.c.o	51d6c9370579bd84
+53	103	1648368366685260920	Project1_copy	2d66e7bc6ca25db8
+1	64	1651912343600051739	build.ninja	dd8faf76e1ec6072
+43	89	1648370824879996465	Project1_test	cc3c7d749feb8f7b
+0	46	1648525744281354003	CMakeFiles/Project1_insert.dir/Project1/insert.c.o	2db4cf2e635b0123
+1	57	1648354882168423151	CMakeFiles/FileStructure.dir/Project1/copy.c.o	232fea191d19ddd3
+0	56	1648354882167649016	CMakeFiles/FileStructure.dir/main.c.o	22de483862a0f0d4
+1	53	1648368366632678220	CMakeFiles/Project1_copy.dir/Project1/copy.c.o	52b7969a23e60cd3
+1	49	1648376271217586175	CMakeFiles/Project1_overwrite.dir/Project1/overwrite.c.o	2ff83a9fa47d2c60
+62	116	1648540614663056732	Project1_delete	b1020a3d0232f74
+49	102	1648376271270757620	Project1_overwrite	418c1dfc906a06
+52	100	1648471444738917631	Project1_read	174cdabb64612146
+46	102	1648525744338139121	Project1_insert	3345748af573b661
+1	62	1648540614609525062	CMakeFiles/Project1_delete.dir/Project1/delete.c.o	b7faa70cb5e9c42

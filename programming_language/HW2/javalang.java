@@ -48,7 +48,7 @@ class RDParser {
 		input += "$";
 		idx = 0;
 		long res = expr();
-		if(input.charAt(idx) != '$')
+		if (input.charAt(idx) != '$')
 			throw new ParsingException("parsing is not ended!");
 		System.out.printf("%d\n", res);
 	}
@@ -58,9 +58,39 @@ class RDParser {
 			idx++;
 	}
 
-	private int digit() {
-		// System.out.println("%d", input.charAt(idx) - '0');
-		return input.charAt(idx) - '0';
+	private boolean is_valid(char a) {
+		switch (a) {
+			case '+':
+			case '-':
+			case '*':
+			case '/':
+			case '(':
+			case ')':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case ' ':
+			case '\t':
+			case '$':
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	private int digit() throws ParsingException{
+		char c = input.charAt(idx);
+		if(!is_valid(c))
+			throw new ParsingException();
+
+		return c - '0';
 	}
 
 	private long number() throws ParsingException {
